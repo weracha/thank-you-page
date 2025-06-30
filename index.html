@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - Your Personalized Romance Novel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,114 +13,212 @@
         }
         
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background-color: #fffdd0;
-            color: #4a4a4a;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: linear-gradient(135deg, #E8B4CB 0%, #D4A5C0 50%, #C496B5 100%);
+            color: #6D4C7D;
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background floral elements */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 70%, rgba(255, 218, 225, 0.4) 0%, transparent 30%);
+            pointer-events: none;
         }
         
         .container {
             max-width: 600px;
             width: 100%;
-            background: #fffdd0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 60px 40px;
             text-align: center;
             position: relative;
+            box-shadow: 0 20px 40px rgba(212, 165, 192, 0.3);
+            border: 2px solid rgba(255, 192, 203, 0.5);
         }
         
-        /* Decorative roses in corners */
-        .rose-decoration {
+        /* Decorative cherry blossoms in corners */
+        .flower-decoration {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            opacity: 0.6;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
         }
         
-        .rose-top-left {
-            top: -10px;
-            left: -10px;
-            color: #800000;
+        .flower-top-left {
+            top: -15px;
+            left: -15px;
+            color: #FFB6C1;
+            transform: rotate(-15deg);
         }
         
-        .rose-top-right {
-            top: -10px;
-            right: -10px;
-            color: #800000;
+        .flower-top-right {
+            top: -15px;
+            right: -15px;
+            color: #FFC0CB;
+            transform: rotate(15deg);
         }
         
-        .rose-bottom-left {
-            bottom: -10px;
-            left: -10px;
-            color: #800000;
+        .flower-bottom-left {
+            bottom: -15px;
+            left: -15px;
+            color: #FFCCCB;
+            transform: rotate(-45deg);
         }
         
-        .rose-bottom-right {
-            bottom: -10px;
-            right: -10px;
-            color: #800000;
+        .flower-bottom-right {
+            bottom: -15px;
+            right: -15px;
+            color: #FFB6C1;
+            transform: rotate(45deg);
         }
         
         h1 {
-            font-size: 3rem;
-            color: #800000;
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #D4A5C0, #C496B5, #B87FA3, #FFB6C1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 2rem;
-            font-weight: normal;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 3px 3px 6px rgba(212, 165, 192, 0.4);
+            letter-spacing: 2px;
+            position: relative;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        h1::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, rgba(255, 182, 193, 0.3), rgba(255, 192, 203, 0.2));
+            border-radius: 20px;
+            z-index: -1;
+            filter: blur(15px);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0% { 
+                text-shadow: 3px 3px 6px rgba(212, 165, 192, 0.4);
+                transform: scale(1);
+            }
+            100% { 
+                text-shadow: 3px 3px 12px rgba(255, 182, 193, 0.6), 0 0 20px rgba(255, 192, 203, 0.3);
+                transform: scale(1.02);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(0.95); }
+            50% { opacity: 0.6; transform: scale(1.05); }
         }
         
         .main-message {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            color: #4a4a4a;
+            color: #6D4C7D;
             line-height: 1.8;
+            font-weight: 300;
         }
         
         .spam-warning {
-            background: linear-gradient(135deg, #800000, #a00000);
+            background: linear-gradient(135deg, #D4A5C0, #C496B5);
             color: white;
-            padding: 25px 30px;
-            border-radius: 12px;
+            padding: 30px 35px;
+            border-radius: 20px;
             margin: 2.5rem 0;
             font-size: 1.2rem;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(128, 0, 0, 0.3);
-            border: 3px solid #600000;
+            box-shadow: 0 8px 25px rgba(212, 165, 192, 0.4);
+            border: 3px solid rgba(255, 192, 203, 0.6);
+            position: relative;
+            overflow: hidden;
         }
         
-
+        .spam-warning::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
         
         .closing-message {
             font-size: 1.1rem;
-            color: #6b4c57;
+            color: #8B6B8F;
             font-style: italic;
             margin-top: 2rem;
+            font-weight: 300;
         }
         
         /* Decorative line separator */
         .separator {
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #800000, transparent);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #D4A5C0, #C496B5, #D4A5C0, transparent);
             margin: 2rem auto;
+            border-radius: 2px;
         }
         
-        /* Rose SVG */
-        .rose-svg {
+        /* Cherry blossom SVG */
+        .flower-svg {
             fill: currentColor;
+            filter: drop-shadow(2px 2px 4px rgba(212, 165, 192, 0.3));
+        }
+        
+        /* Floating animation for decorative flowers */
+        .flower-decoration {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .flower-top-right, .flower-bottom-left {
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
         }
         
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 40px 30px;
+                margin: 20px;
             }
             
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
                 margin-bottom: 1.5rem;
             }
             
@@ -129,14 +228,14 @@
             }
             
             .spam-warning {
-                padding: 20px 25px;
+                padding: 25px 30px;
                 font-size: 1.1rem;
                 margin: 2rem 0;
             }
             
-            .rose-decoration {
-                width: 30px;
-                height: 30px;
+            .flower-decoration {
+                width: 45px;
+                height: 45px;
             }
         }
         
@@ -145,8 +244,12 @@
                 padding: 15px;
             }
             
+            .container {
+                padding: 30px 25px;
+            }
+            
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .main-message {
@@ -154,28 +257,46 @@
             }
             
             .spam-warning {
-                padding: 18px 20px;
+                padding: 20px 25px;
                 font-size: 1rem;
             }
             
-            .rose-decoration {
-                width: 25px;
-                height: 25px;
+            .flower-decoration {
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Decorative roses in corners -->
-        <div class="rose-decoration rose-top-left">
-            <svg class="rose-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        <!-- Decorative cherry blossoms in corners -->
+        <div class="flower-decoration flower-top-left">
+            <svg class="flower-svg" viewBox="0 0 100 100" fill="currentColor">
+                <g transform="translate(50,50)">
+                    <!-- Cherry blossom petals -->
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(0)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(72)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(144)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(216)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(288)" opacity="0.9"/>
+                    <!-- Center -->
+                    <circle cx="0" cy="0" r="4" fill="#FFE4E1" opacity="0.8"/>
+                    <circle cx="0" cy="0" r="2" fill="#FFC0CB" opacity="0.9"/>
+                </g>
             </svg>
         </div>
-        <div class="rose-decoration rose-top-right">
-            <svg class="rose-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        <div class="flower-decoration flower-top-right">
+            <svg class="flower-svg" viewBox="0 0 100 100" fill="currentColor">
+                <g transform="translate(50,50)">
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(0)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(72)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(144)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(216)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(288)" opacity="0.9"/>
+                    <circle cx="0" cy="0" r="4" fill="#FFE4E1" opacity="0.8"/>
+                    <circle cx="0" cy="0" r="2" fill="#FFC0CB" opacity="0.9"/>
+                </g>
             </svg>
         </div>
         
@@ -195,15 +316,31 @@
             Enjoy your personalized love story! ✨
         </p>
         
-        <!-- Bottom decorative roses -->
-        <div class="rose-decoration rose-bottom-left">
-            <svg class="rose-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        <!-- Bottom decorative cherry blossoms -->
+        <div class="flower-decoration flower-bottom-left">
+            <svg class="flower-svg" viewBox="0 0 100 100" fill="currentColor">
+                <g transform="translate(50,50)">
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(0)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(72)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(144)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(216)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(288)" opacity="0.9"/>
+                    <circle cx="0" cy="0" r="4" fill="#FFE4E1" opacity="0.8"/>
+                    <circle cx="0" cy="0" r="2" fill="#FFC0CB" opacity="0.9"/>
+                </g>
             </svg>
         </div>
-        <div class="rose-decoration rose-bottom-right">
-            <svg class="rose-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        <div class="flower-decoration flower-bottom-right">
+            <svg class="flower-svg" viewBox="0 0 100 100" fill="currentColor">
+                <g transform="translate(50,50)">
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(0)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(72)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(144)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(216)" opacity="0.9"/>
+                    <ellipse cx="0" cy="-20" rx="8" ry="15" transform="rotate(288)" opacity="0.9"/>
+                    <circle cx="0" cy="0" r="4" fill="#FFE4E1" opacity="0.8"/>
+                    <circle cx="0" cy="0" r="2" fill="#FFC0CB" opacity="0.9"/>
+                </g>
             </svg>
         </div>
     </div>
